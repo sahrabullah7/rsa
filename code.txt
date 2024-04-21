@@ -1,0 +1,3 @@
+import random                                         # choosing random number
+import math                                           # calculating eqautions
+import time                                           # get time
