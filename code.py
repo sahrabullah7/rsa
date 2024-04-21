@@ -39,3 +39,17 @@ def extended_gcd(a, b):
         x0, x1 = x1, x0 - q * x1
         y0, y1 = y1, y0 - q * y1
     return a, x0, y0   
+
+# Generate public and private keys
+def generate_keys(bits):                   
+    p, q = large_prime(bits)                          # generate prime numbers for the bits required
+    n = p * q 
+    phi = (p - 1) * (q - 1)
+    e = 65537                                         # common e
+    while gcd(e, phi) != 1:                           # conditions of e
+        break
+    _, x, _ = extended_gcd(e, phi)
+    d = x 
+    if d<0:
+        d+=phi
+    return (e, n), (d, n)
