@@ -1,3 +1,18 @@
 import random                                         # choosing random number
 import math                                           # calculating eqautions
 import time                                           # get time
+
+# A prime function
+def prime(n):  
+    if n <= 1:                                        # no decimal / -ve no /1 in the range                                   
+        return False
+    elif n <= 3:                                      # 2,3 in the range                           
+        return True
+    elif n % 2 == 0 or n % 3 == 0:                    # factors of 2,3    
+        return False 
+    i = 5
+    while i * i <= n:                                 # to get the rest of the prime numbers
+        if n % i == 0 or n % (i + 2) == 0:          
+            return False                            
+        i += 6                                        # new i
+    return True
