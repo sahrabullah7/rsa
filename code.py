@@ -53,3 +53,21 @@ def generate_keys(bits):
     if d<0:
         d+=phi
     return (e, n), (d, n)
+
+# Encryption
+def encrypt(message, public_key):  
+    e, n = public_key
+    encrypted_message = pow(message, e, n)             # eqaution for ciphertext
+    return encrypted_message
+
+# Decryption
+def decrypt(encrypted_message, private_key):  
+    d, n = private_key 
+    decrypted_message = pow(encrypted_message, d, n)   # eqaution for decryption
+    return decrypted_message
+
+# Factorizing modulus
+def factorize_modulus(n):
+    for i in range(2, int(math.sqrt(n)) + 1):          # range of i 
+        if n % i == 0:
+            return i, n // i 
